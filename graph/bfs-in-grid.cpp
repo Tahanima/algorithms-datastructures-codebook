@@ -4,8 +4,9 @@ using namespace std;
 
 /*********************************************************************************************
  
- Given a grid consisting of the characters '.' and '*' find the number of connected components 
- consisting of the characters '*'.
+ Given a grid consisting of the characters '.' and '*', find the number of connected components 
+ consisting of the character '*'. The cells (x - 1, y), (x, y + 1), (x, y - 1), (x + 1, y) are
+ directly connected with the cell (x, y).
 
  Input:
  4 4
