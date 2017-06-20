@@ -87,6 +87,10 @@ int lca(int p, int q){
     return par[0][p];
 }
 
+int dist (int u, int v){
+	return level[u] + level[v] - 2 * level[lca(u, v)];
+}
+
 int main(){
 	int u, v;
 	scanf("%d", &n);
