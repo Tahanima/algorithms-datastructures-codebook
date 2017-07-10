@@ -25,7 +25,7 @@ const int MX = 1e5 + 5;
 int Arr[MX], tree[4 * MX];
 
 void build(int node, int st, int en){
-	if(st == en) return Arr[node];
+	if(st == en) tree[node] = Arr[st];
 	else{
 		int l = 2 * node, r = l + 1, mid = (st + en)/2;
 		build(l, st, mid);
@@ -38,7 +38,6 @@ void update(int node, int st, int en, int idx, int val){
 	if(en < idx || st > idx) return;
 	else if(st >= idx && en <= idx){
 		tree[node] = val;
-		return;
 	}else{
 		int l = 2 * node, r = l + 1, mid = (st + en)/2;
 		update(l, st, mid, idx, val);
@@ -54,6 +53,7 @@ int query(int node, int st, int en, int i, int j){
 		int l = 2 * node, r = l + 1, mid = (st + en)/2;
         int p = query(l, st, mid, i, j);
         int q = query(r, mid + 1, en, i, j);
+        return p + q;
 	}
 }
 
@@ -72,7 +72,7 @@ int main(){
     	if(type == 1){
     		cin >> l >> val;
     		l--;
-    		update(1, 0, N - 1, l, val)
+    		update(1, 0, N - 1, l, val);
     	}
     	// query
     	else{
