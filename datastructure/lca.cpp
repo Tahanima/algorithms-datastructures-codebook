@@ -70,7 +70,7 @@ void preprocess(){
 int lca(int p, int q){
 	if(level[p] > level[q]) swap(p, q);
     int dist = level[q] - level[p];
-    for(int i = 0; i < LOGN; i++){
+    for(int i = LOGN - 1; i >= 0; i--){
     	if(dist >= (1 << i)){
     		q = par[i][q];
     		dist -= (1 << i);
